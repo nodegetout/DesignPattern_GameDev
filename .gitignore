@@ -1,0 +1,11 @@
+# unity 
+Library/
+Logs/
+Temp/
+
+# c#
+*.csproj
+*.sln
+
+# jetbrain ide
+.idea/
