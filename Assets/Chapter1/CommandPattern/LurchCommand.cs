@@ -4,9 +4,9 @@ namespace Chapter1.CommandPattern
 {
     public class LurchCommand : ICommand
     {
-        public void Execute()
+        public void Execute(GameActor actor)
         {
-            Debug.Log($"lurch");
+            actor.Lurch();
         }
     }
 }

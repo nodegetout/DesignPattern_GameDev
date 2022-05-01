@@ -9,23 +9,35 @@ namespace Chapter1.CommandPattern
         private FireCommand m_CommandButtonY = new FireCommand();
         private LurchCommand m_CommandButtonA = new LurchCommand();
         private SwapCommand m_CommandButtonB = new SwapCommand();
-        
+
+        private GameActor m_GameActor = new GameActor();
         
         void Update()
         {
+            ICommand command = HandleInput();
+            command?.Execute(m_GameActor);
+        }
+
+        ICommand HandleInput()
+        {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                m_CommandButtonX.Execute();
-            }else if (Input.GetKeyDown(KeyCode.Y))
-            {
-                m_CommandButtonY.Execute();
-            }else if (Input.GetKeyDown(KeyCode.A))
-            {
-                m_CommandButtonA.Execute();
-            }else if (Input.GetKeyDown(KeyCode.B))
-            {
-                m_CommandButtonB.Execute();
+                return m_CommandButtonX;
             }
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+                return m_CommandButtonY;
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                return m_CommandButtonA;
+            }
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                return m_CommandButtonB;
+            }
+
+            return null;
         }
     }
 }

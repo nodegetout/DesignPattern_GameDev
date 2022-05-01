@@ -4,9 +4,9 @@ namespace Chapter1.CommandPattern
 {
     public class FireCommand : ICommand
     {
-        public void Execute()
+        public void Execute(GameActor actor)
         {
-            Debug.Log($"fire");
+            actor.Fire();
         }
     }
 }
